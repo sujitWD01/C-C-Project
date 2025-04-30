@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Sciessor</title>
+    <style>
+      
+body{
+   background-color: lightsalmon;
+    text-align: center;
+    
+}
+
+#container{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+ 
+}
+
+   
+
+#h1{
+   color: #fff;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ 
+}
+
+#user-move{
+    color: #fff;
+    font-size: 5vmin;
+    font-family: Arial;
+}
+#computer-move{
+    color: #fff;
+    font-size: 5vmin;
+    font-family: Arial;
+}
+#resultMsg{
+    color: #fff;
+    font-size: 5vmin;
+    font-family: Arial;
+}
+.btn{
+    height: 150px;
+    width: 100px;
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+   
+}
+
+.ch-image{
+    height: 140px;
+    border-radius: 30px;
+}
+#score{
+    color: #fff;
+    font-size: 5vmin;
+    font-family: Arial
+}
+
+
+
+
+
+    </style>
+   
+</head>
+<body>
+    
+    <main>
+        <h1 id="h1">Rock Paper Sciessor</h1>
+     <div id="container">
+       
+            <div class="btn" onclick="
+               ComputerChoice = generateChoice();
+                let resultMsg;
+                if(ComputerChoice === 'Rock') {
+                    score.tie = score.tie+1;
+                    resultMsg= 'it`s tie';
+                } else if(ComputerChoice === 'Paper') {
+                    score.win=score.win+1;
+                    resultMsg = 'You won.';
+                }else if(ComputerChoice==='Sciessor') {
+                    score.lost = score.lost+1;
+                  resultMsg = 'Computer won.'
+                }
+                localStorage.setItem('win',JSON.stringify(score.win));
+                localStorage.setItem('tie',JSON.stringify(score.tie));
+                localStorage.setItem('lost',JSON.stringify(score.lost));
+                document.querySelector('#user-move').innerText = `Your choice is Rock.`;
+            document.querySelector('#computer-move').innerText=`Computer Choice is ${ComputerChoice}`;
+            document.querySelector('#resultMsg').innerText = `Result is ${resultMsg}`;
+            document.querySelector('#score').innerText = `Win : ${score.win}, Lost : ${score.lost}, Tie : ${score.tie}`;
+                
+                "><img src="Rock.jpg" alt="Rock Image" class="ch-image"></div>
+            <div class="btn" onclick="
+            ComputerChoice = generateChoice();
+            let Resultmsg;
+            if(ComputerChoice==='Rock') {
+                score.lost = score.lost+1;
+                Resultmsg = 'Computer won.';
+            }else if(ComputerChoice==='Paper') {
+                score.tie = score.tie+1;
+                Resultmsg = 'it`s tie'; 
+            }else if(ComputerChoice==='Sciessor') {
+                score.win=score.win+1;
+                Resultmsg = 'You won.'
+            }
+            localStorage.setItem('win',JSON.stringify(score.win));
+                localStorage.setItem('tie',JSON.stringify(score.tie));
+                localStorage.setItem('lost',JSON.stringify(score.lost));
+            document.querySelector('#user-move').innerText = `Your choice is Paper.`;
+            document.querySelector('#computer-move').innerText=`Computer Choice is ${ComputerChoice}`;
+            document.querySelector('#resultMsg').innerText = `Result is ${Resultmsg}`;
+            document.querySelector('#score').innerText = `Win : ${score.win}, Lost : ${score.lost}, Tie : ${score.tie}`;
+            
+            
+            
+            "><img src="Paper.jpg" alt="Paper Image" class="ch-image"></div>
+            <div class="btn" onclick="
+           
+            
+            let ComputerChoice = generateChoice();
+            
+            let ResultMsg;
+            if(ComputerChoice==='Rock') {
+                score.win= score.win+1;
+                ResultMsg = 'You won.';
+            }else if(ComputerChoice=== 'Paper') {
+                score.lost = score.lost+1;
+                ResultMsg = 'Computer won.';
+            }else if(ComputerChoice === 'Sciessor') {
+                score.tie = score.tie+1;
+                ResultMsg = 'it`s tie';
+            }
+            localStorage.setItem('win',JSON.stringify(score.win));
+                localStorage.setItem('tie',JSON.stringify(score.tie));
+                localStorage.setItem('lost',JSON.stringify(score.lost));
+            document.querySelector('#user-move').innerText = `Your choice is Sciessor.`;
+            document.querySelector('#computer-move').innerText=`Computer Choice is ${ComputerChoice}`;
+            document.querySelector('#resultMsg').innerText = `Result is ${ResultMsg}`;
+            document.querySelector('#score').innerText = `Win : ${score.win}, Lost : ${score.lost}, Tie : ${score.tie}`;
+
+            
+
+            
+            
+            "><img src="Scissor.jpg" alt="Scissor Image" class="ch-image"></div>
+
+            
+            
+      
+        
+       
+    </div>
+    </main>
+    <h3 id="user-move"></h3>
+    <h3 id="computer-move"></h3>
+    <h3 id="resultMsg"></h3>
+    <h3 id="score"></h3>
+ <script>
+
+
+      let score={
+        win : 0,
+        tie : 0, 
+        lost : 0
+      };
+
+
+        function generateChoice() {
+            let RandomNumber  = Math.random()*3;
+            if(RandomNumber>0 && RandomNumber<=1) {
+                return 'Rock';
+            }else if(RandomNumber>1 && RandomNumber<=2) {
+                return 'Paper';
+            }else {
+                return 'Sciessor';
+            }
+
+        }
+    </script>
+ 
+   
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Game</title>
+    <style>
+        body{
+          text-align: center;  
+            background-color: rgb(28, 146, 185);
+        }
+        .choice-button{
+            height: 100px;
+            width: 100px;
+            border: none;
+            margin: 10px;
+            background-color: rgb(55, 214, 55);
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .choice-immage{
+            height: 95px;
+        }
+ h1{
+    height: 50px;
+    color: #fff;
+ }
+        
+
+
+
+    </style>
+   
+</head>
+<body>
+    <h1>Bat Ball Stump</h1>
+   
+    <button class="choice-button" onclick="
+  computerChoice = generateCMchoice();
+    
+   let resultMsg;
+    if(computerChoice === 'Ball') {
+        score.Win= score.Win+1;
+        resultMsg ='User won.'
+    }else if(computerChoice === 'Bat') {
+        score.tie= score.tie+1;
+        resultMsg = 'it`s tie';
+    } else if(computerChoice === 'Stump') {
+        score.Lost = score.Lost+1;
+        resultMsg = 'Computer won';
+    }
+    localStorage.setItem('Win',JSON.stringify(score.Win));
+            localStorage.setItem('tie',JSON.stringify(score.tie));
+            localStorage.setItem('Lost',JSON.stringify(score.Lost));
+            document.querySelector('#user-move').innerText = `you have choosen Bat `;
+            document.querySelector('#computer-move').innerText = ` Computer choice is ${computerChoice} `;
+            document.querySelector('#result').innerText = `  ${resultMsg} `;
+            document.querySelector('#score').innerText = ` win:${score.Win}, Tie:${score.tie}, Lost:${score.Lost} `;
+  
+
+    "> <img src="bat.png" alt="Bat immage" class="choice-immage"></button>
+
+
+    <button class="choice-button" onclick="
+     computerChoice = generateCMchoice();
+    let Resultmsg;
+    if(computerChoice === 'Ball') {
+        score.tie= score.tie+1;
+        Resultmsg ='it`s tie'
+    }else if(computerChoice === 'Bat') {
+        score.Win= score.Win+1;
+        Resultmsg = 'User won.';
+    } else if(computerChoice === 'Stump') {
+        score.Lost = score.Lost+1;
+        Resultmsg = 'Computer won.';
+    }
+    localStorage.setItem('Win',JSON.stringify(score.Win));
+            localStorage.setItem('tie',JSON.stringify(score.tie));
+            localStorage.setItem('Lost',JSON.stringify(score.Lost));
+
+            document.querySelector('#user-move').innerText = `you have choosen Ball `;
+            document.querySelector('#computer-move').innerText = ` Computer choice is ${computerChoice} `;
+            document.querySelector('#result').innerText = `  ${Resultmsg} `;
+            document.querySelector('#score').innerText = ` win:${score.Win}, Tie:${score.tie}, Lost:${score.Lost} `;
+  
+
+    "
+    > <img src="ball.png" alt="Ball immage" class="choice-immage"></button>
+
+
+
+    <button class="choice-button" onclick="
+    computerChoice = generateCMchoice();
+    let ResultMsg;
+    
+
+    if(computerChoice === 'Ball') {
+        score.Win= score.Win+1;
+        ResultMsg ='User won.'
+    }else if(computerChoice === 'Bat') {
+        score.Lost = score.Lost+1;
+        ResultMsg = 'Computer won.';
+    } else if(computerChoice === 'Stump') {
+        score.tie= score.tie+1;
+        ResultMsg = 'it`s tie'
+    }
+    localStorage.setItem('Win',JSON.stringify(score.Win));
+            localStorage.setItem('tie',JSON.stringify(score.tie));
+            localStorage.setItem('Lost',JSON.stringify(score.Lost));
+            document.querySelector('#user-move').innerText = `you have choosen Stup `;
+            document.querySelector('#computer-move').innerText = ` Computer choice is ${computerChoice} `;
+            document.querySelector('#result').innerText = `  ${ResultMsg} `;
+            document.querySelector('#score').innerText = ` win:${score.Win}, Tie:${score.tie}, Lost:${score.Lost} `;
+  
+
+
+    "> <img src="stump.png" alt="Stump immage" class="choice-immage"></button>
+    
+    <h3 style="color: #fff;" id="user-move"></h3>
+    <h3 style="color: #fff;" id="computer-move"></h3>
+    <h3 style="color: #fff;" id="result"></h3>
+    <h3 style="color: #fff;" id="score"></h3>
+
+    
+
+
+
+    <script>
+       
+      
+       
+       
+        let score = {
+            Win :0,
+            tie:0,
+            Lost : 0
+
+        };
+
+    
+            
+        
+      
+        function generateCMchoice(){
+            let randomNumber = Math.random() * 3;
+          
+  
+  if (randomNumber>0 && randomNumber<=1) {
+        return 'Bat';
+      
+  }else if(randomNumber >1 && randomNumber<=2)
+  {
+       return'Ball';
+       
+  }else{
+       return'Stump';
+       
+  }
+ 
+        }
+    </script>
+    
+</body>
+</html>
